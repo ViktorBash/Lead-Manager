@@ -6,8 +6,16 @@ from .serializers import LeadSerializer
 # A viewset allows us to create full CRUD APIs without declaring explicit methods, (ex: POST, GET, etc)
 # Lead View set
 class LeadViewSet(viewsets.ModelViewSet):
-    queryset = Lead.objects.all()
+    # queryset = Lead.objects.all()
     permission_classes = [
-        permissions.AllowAny
+        permissions.IsAuthenticated
     ]
+
     serializer_class = LeadSerializer
+
+    def get_queryset(self):
+        return self.request.user.leads.all()
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
