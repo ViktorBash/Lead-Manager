@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development --watch ./frontend/src/index.js --output ./leadmanager/frontend/static/frontend/main.js",
-    "build": "webpack --mode production ./frontend/src/index.js --output ./leadmanager/frontend/static/frontend/main.js"
+    "build": "webpack --mode production ./frontend/src/index.js --output ./leadmanager/frontend/static/frontend/main.js",
+    "postinstall": "webpack --mode production ./frontend/src/index.js --output ./leadmanager/frontend/static/frontend/main.js"
   },
   "repository": {
     "type": "git",
