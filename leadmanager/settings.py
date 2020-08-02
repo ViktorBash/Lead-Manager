@@ -82,6 +82,7 @@ WSGI_APPLICATION = 'leadmanager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# SQLITE DATABASE CONFIGURATION
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
@@ -89,6 +90,7 @@ WSGI_APPLICATION = 'leadmanager.wsgi.application'
 #     }
 # }
 
+# POSTGRESQL DATABASE CONFIGURATION
 DATABASES = {
     "default": {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
