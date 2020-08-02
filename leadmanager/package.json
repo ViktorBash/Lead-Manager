@@ -1,11 +1,11 @@
 {
-  "name": "Lead-Manager",
+  "name": "leadmanager",
   "version": "1.0.0",
   "description": "This will be a lead manager made with Django, React and Redux",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development --watch ./leadmanager/frontend/src/index.js --output ./leadmanager/frontend/static/frontend/main.js",
-    "build": "webpack --mode production ./leadmanager/frontend/src/index.js --output ./leadmanager/frontend/static/frontend/main.js"
+    "dev": "webpack --mode development --watch ./frontend/src/index.js --output ./leadmanager/frontend/static/frontend/main.js",
+    "build": "webpack --mode production ./frontend/src/index.js --output ./leadmanager/frontend/static/frontend/main.js"
   },
   "repository": {
     "type": "git",
