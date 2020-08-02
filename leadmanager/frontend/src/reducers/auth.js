@@ -1,4 +1,12 @@
-import { USER_LOADED, USER_LOADING, AUTH_ERROR } from "../actions/types";
+import {
+    USER_LOADED,
+    USER_LOADING,
+    AUTH_ERROR,
+    LOGIN_FAIL,
+    LOGIN_SUCCESS,
+    LOGOUT_SUCCESS,
+    REGISTER_SUCCESS, REGISTER_FAIL
+} from "../actions/types";
 
 
 const initialState = {
@@ -8,8 +16,8 @@ const initialState = {
     user: null
 }
 
-export default function(state = initialState, action) {
-    switch(action.type) {
+export default function (state = initialState, action) {
+    switch (action.type) {
         case USER_LOADING:
             return {
                 ...state,
@@ -22,7 +30,18 @@ export default function(state = initialState, action) {
                 isLoading: false,
                 user: action.payload
             };
+        case REGISTER_SUCCESS:
+        case LOGIN_SUCCESS:
+            localStorage.setItem("token", action.payload.token);
+            return {
+                ...state,
+                ...action.payload,
+                isAuthenticated: true,
+                isLoading: false
+            };
         case AUTH_ERROR:
+        case LOGIN_FAIL:
+        case REGISTER_FAIL:
             localStorage.removeItem("token")
             return {
                 ...state,
@@ -31,6 +50,18 @@ export default function(state = initialState, action) {
                 isAuthenticated: false,
                 isLoading: false
             };
+        case LOGOUT_SUCCESS:
+            console.log("EEE")
+            localStorage.removeItem("token")
+            return {
+                ...state,
+                leads: [],
+                token: null,
+                user: null,
+                isAuthenticated: false,
+                isLoading: false
+            };
+
         default:
             return state;
     }
