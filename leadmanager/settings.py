@@ -83,24 +83,24 @@ WSGI_APPLICATION = 'leadmanager.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 # SQLITE DATABASE CONFIGURATION
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-# POSTGRESQL DATABASE CONFIGURATION
 DATABASES = {
-    "default": {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'lead-manager',
-        'USER': 'postgres',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
-        'PORT': '5432',
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# POSTGRESQL DATABASE CONFIGURATION
+# DATABASES = {
+#     "default": {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'lead-manager',
+#         'USER': 'postgres',
+#         'PASSWORD': '1234',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
