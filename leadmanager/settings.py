@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Includes Heroku website and local
 ALLOWED_HOSTS = ["manage-leads.herokuapp.com", "192.168.1.53", "localhost", "127.0.0.1"]
@@ -88,12 +88,12 @@ WSGI_APPLICATION = 'leadmanager.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 # SQLITE DATABASE CONFIGURATION for local
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 
 # POSTGRESQL DATABASE CONFIGURATION for local
