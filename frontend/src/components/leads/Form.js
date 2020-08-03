@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import {addLead} from "../../actions/leads";
 
+// Form to add a lead
 export class Form extends Component {
     state = {
         name: "",
@@ -18,7 +19,6 @@ export class Form extends Component {
 
     onSubmit = e => {
         e.preventDefault();
-        console.log("submit")
         const { name, email, message } = this.state;
         const lead = { name, email, message };
         this.props.addLead(lead);

@@ -4,7 +4,7 @@ from knox.models import AuthToken
 from .serializers import UserSerializer, RegisterSerializer, LoginSerializer
 from knox.auth import TokenAuthentication
 
-# Register API
+# Register API (POST)
 class RegisterAPI(generics.GenericAPIView):
     serializer_class = RegisterSerializer
 
@@ -18,7 +18,7 @@ class RegisterAPI(generics.GenericAPIView):
         })
 
 
-# Login API
+# Login API (POST)
 class LoginAPI(generics.GenericAPIView):
     serializer_class = LoginSerializer
 
@@ -35,7 +35,7 @@ class LoginAPI(generics.GenericAPIView):
         })
 
 
-# Get user API
+# Get user API (GET)
 class UserAPI(generics.RetrieveAPIView):
     permission_classes = [
         permissions.IsAuthenticated,

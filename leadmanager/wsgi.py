@@ -14,4 +14,4 @@ from whitenoise import WhiteNoise
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'leadmanager.settings')
 
 application = get_wsgi_application()
-application = WhiteNoise(application)
+application = WhiteNoise(application)  # For static file serving

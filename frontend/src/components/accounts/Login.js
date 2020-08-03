@@ -18,10 +18,10 @@ export class Login extends Component {
     onSubmit = e => {
         e.preventDefault();
         this.props.login(this.state.username, this.state.password);
-        this.setState({password: ""});
+        this.setState({password: ""}); // Reset password in case login not successful
     }
 
-    onChange = e => this.setState({[e.target.name]: e.target.value});
+    onChange = e => this.setState({[e.target.name]: e.target.value}); // Keep state updated with input in the form
 
     render() {
         if(this.props.isAuthenticated) {
@@ -29,6 +29,7 @@ export class Login extends Component {
         }
         const { username, password } = this.state;
         return (
+            // Login form
             <div className="col-md-6 m-auto">
                 <div className="card card-body mt-5">
                     <h2 className="text-center">Login</h2>

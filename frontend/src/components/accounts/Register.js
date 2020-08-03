@@ -22,10 +22,12 @@ export class Register extends Component {
     onSubmit = e => {
         e.preventDefault();
         const { username, email, password, password2 } = this.state;
+
+        // Make sure passwords match
         if (password !== password2) {
             this.props.createMessage({ passwordNotMatch: "Passwords do not match"})
         }
-        else {
+        else { // Passwords do match
             const newUser = {
                 username,
                 password,
@@ -35,7 +37,7 @@ export class Register extends Component {
         }
     }
 
-    onChange = e => this.setState({[e.target.name]: e.target.value});
+    onChange = e => this.setState({[e.target.name]: e.target.value});  // Keep state updated with input in form
 
     render() {
         if(this.props.isAuthenticated) {
@@ -43,6 +45,7 @@ export class Register extends Component {
         }
         const { username, email, password, password2 } = this.state;
         return (
+            // Register form
             <div className="col-md-6 m-auto">
                 <div className="card card-body mt-5">
                     <h2 className="text-center">Register</h2>

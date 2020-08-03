@@ -12,4 +12,4 @@ This is a lead manager that allows you to track leads. It is built with React an
 
 * `python manage.py makemigrations` and `python manage.py migrate` to create the database.
 
-* `npm run dev` or `npm run build`. Then in another terminal in the same directory run `python manage.py runserver`. Your server should now be on localhost:8000 or your IP address.
+* `npm run dev` or `npm run build`. Then in another terminal in the same directory run `python manage.py runserver`. Your server should now be on localhost:8000 or your local IP address.

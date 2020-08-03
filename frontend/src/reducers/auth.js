@@ -51,7 +51,6 @@ export default function (state = initialState, action) {
                 isLoading: false
             };
         case LOGOUT_SUCCESS:
-            console.log("EEE")
             localStorage.removeItem("token")
             return {
                 ...state,

@@ -21,12 +21,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'xebhe0cs9r#zo#!8cdb&h@8ssi+wwk68a!tv-f-mn23mp*gk+='
+# 'xebhe0cs9r#zo#!8cdb&h@8ssi+wwk68a!tv-f-mn23mp*gk+='
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["manage-leads.herokuapp.com", "192.168.1.53"]
+# Includes Heroku website and local
+ALLOWED_HOSTS = ["manage-leads.herokuapp.com", "192.168.1.53", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -45,12 +47,13 @@ INSTALLED_APPS = [
     'accounts',
 ]
 
+# For token authentication
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": ('knox.auth.TokenAuthentication',)
 }
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # whitenoise
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -84,7 +87,7 @@ WSGI_APPLICATION = 'leadmanager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# SQLITE DATABASE CONFIGURATION
+# SQLITE DATABASE CONFIGURATION for local
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
@@ -93,8 +96,7 @@ WSGI_APPLICATION = 'leadmanager.wsgi.application'
 # }
 
 
-
-# POSTGRESQL DATABASE CONFIGURATION
+# POSTGRESQL DATABASE CONFIGURATION for local
 # DATABASES = {
 #     "default": {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -143,7 +145,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+# run python manage.py collectstatic after updates to static files to make sure they get included
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfies")
+# Use whitenoise to server packages
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+# Setups for Heroku deployment (includes connecting to Heroku PostgreSQL server)
 django_heroku.settings(locals())
