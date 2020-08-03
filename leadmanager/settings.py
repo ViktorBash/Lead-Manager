@@ -84,13 +84,20 @@ WSGI_APPLICATION = 'leadmanager.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 # SQLITE DATABASE CONFIGURATION
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
+# import dj_database_url
+#
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+# DATABASES['default'] = dj_database_url.config(default='postgres://...'}
+# DATABASES['default'] = dj_database_url.parse('postgres://bicslavhxerogn:88527d4e5179dedafff6bd0eca8cefadb3ffa547de83484f411f903d2d8e43cd@ec2-50-16-198-4.compute-1.amazonaws.com:5432/d4clig4t6pg471', conn_max_age=600)
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update("postgres://bicslavhxerogn:88527d4e5179dedafff6bd0eca8cefadb3ffa547de83484f411f903d2d8e43cd@ec2-50-16-198-4.compute-1.amazonaws.com:5432/d4clig4t6pg471")
 # POSTGRESQL DATABASE CONFIGURATION
 # DATABASES = {
 #     "default": {
