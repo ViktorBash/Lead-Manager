@@ -36,7 +36,7 @@ mistune==2.0.3
 mpmath==1.1.0
 nbconvert==6.3.0
 nbformat==5.0.4
-notebook==6.4.10
+notebook==6.4.12
 pandas==0.25.3
 pandocfilters==1.4.2
 parso==0.6.0
